@@ -157,11 +157,11 @@ h1 {
   cursor: pointer;
 }
 
-#info, #copy, #toolbar {
+#info, #copy, #toolbar, #selected-properties {
   display: none;
 }
 
-#info.active, #copy.active {
+#info.active, #copy.active, #selected-properties.active {
   display: block;
 }
 
@@ -315,6 +315,7 @@ h1 {
 
 .prop {
   width: 50%;
+  overflow: hidden;
 }
 
 .prop label {
