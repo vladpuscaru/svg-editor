@@ -19,13 +19,64 @@
     <div id="sidebar" class="animated swipeRight">
       <div id="btn"></div>
 
-      <div id="info" class="fadeIn">
+      <div id="info" class="animated fadeIn active">
         MM final project
       </div>
 
-      <div id="toolbar" class="animated fadeIn"></div>
-      <div id="props" class="animated fadeIn"></div>
-      <div id="copy" class="fadeIn">
+      <div id="toolbar" class="animated fadeIn active">
+        <div class="item item--select active">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 297" width="30px" height="30px">
+            <path
+              d="M247.094 297a10.675 10.675 0 01-7.551-3.129l-82.835-82.868-34.905 60.448a10.666 10.666 0 01-10.017 5.31 10.677 10.677 0 01-9.148-6.697L.825 14.632A10.678 10.678 0 0114.7.761l255.317 101.86a10.677 10.677 0 011.385 19.163l-60.435 34.929 82.839 82.878c4.168 4.169 4.168 10.926.001 15.096l-39.162 39.186a10.687 10.687 0 01-7.551 3.127zm-92.672-114.066c2.813 0 5.534 1.112 7.551 3.129l85.121 85.156 24.067-24.082-85.126-85.162a10.675 10.675 0 012.208-16.793l53.427-30.879L29.86 29.801l84.462 211.902 30.853-53.433a10.68 10.68 0 019.247-5.336z" />
+          </svg>
+        </div>
+        <div class="item item--line">
+          <div class="inner"></div>
+        </div>
+        <div class="item item--ellipse">
+          <div class="inner"></div>
+        </div>
+        <div class="item item--rectangle">
+          <div class="inner"></div>
+        </div>
+        <div class="item item--select">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.998 511.998">
+            <path
+              d="M507.602 131.672L380.323 4.393c-5.857-5.858-15.355-5.858-21.213 0l-65.64 65.64c-5.858 5.858-5.858 15.355 0 21.213l6.498 6.498-171.68 85.84a15 15 0 00-7.219 7.846L1.121 491.297a14.738 14.738 0 00-.459 1.295c-.26.848-.465 1.831-.568 2.769a14.9 14.9 0 003.113 10.897c.088.112.175.225.267.335a14.979 14.979 0 0014.351 5.136c.384-.073.763-.171 1.142-.275.079-.022.16-.035.239-.059a14.98 14.98 0 001.496-.523l299.865-119.946a15 15 0 007.846-7.219l85.84-171.68 6.498 6.498a14.954 14.954 0 0010.606 4.394c3.838 0 7.678-1.464 10.606-4.394l65.64-65.64c5.857-5.857 5.857-15.354-.001-21.213zM304.13 365.19L77.276 455.932l128.33-128.33A44.728 44.728 0 00224.995 332c24.813 0 45-20.187 45-45s-20.187-45-45-45-45 20.187-45 45a44.725 44.725 0 004.398 19.389l-128.33 128.33 90.741-226.854 175.524-87.761 69.563 69.563L304.13 365.19zM209.995 287c0-8.271 6.729-15 15-15s15 6.729 15 15-6.729 15-15 15-15-6.729-15-15zm221.361-100.295l-10.799-10.799-.027-.027-84.413-84.413-.033-.033L325.29 80.64l44.426-44.426L475.782 142.28l-44.426 44.425z" />
+          </svg>
+        </div>
+        <div class="item item--text">
+          T
+        </div>
+      </div>
+
+      <div id="selected-properties">
+        <div class="row header">
+          selected properties
+        </div>
+        <div class="row">
+          <div class="prop">
+            <label for="width">w<span>:</span></label>
+            <input type="number" name="width" , id="width">
+          </div>
+          <div class="prop">
+            <label for="height">h<span>:</span></label>
+            <input type="number" name="height" , id="height">
+          </div>
+        </div>
+        <div class="row">
+          <div class="prop">
+            <label for="x">x<span>:</span></label>
+            <input type="number" name="x" , id="x">
+          </div>
+          <div class="prop">
+            <label for="y">y<span>:</span></label>
+            <input type="number" name="y" , id="y">
+          </div>
+        </div>
+      </div>
+
+      <div id="copy" class="animated fadeIn active">
         <span>&copy;</span> 2019 vlad puscaru<br>all rights reserved
       </div>
     </div>
