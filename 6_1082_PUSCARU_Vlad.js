@@ -2,6 +2,11 @@ $(document).ready(function () {
 
   let activeItem = $(".item.active");
 
+  // Audio sources
+  let audioItemClick = new Audio("./media/click.mp3");
+
+  console.log(audioItemClick);
+
   // UI events
   $("#btn").click(function () {
     if ($(this).hasClass('rotated')) {
@@ -51,9 +56,12 @@ $(document).ready(function () {
   );
 
   $(".item").click(function () {
+    audioItemClick.play();
     activeItem.removeClass("active");
     $(this).addClass("active");
     activeItem = $(this);
+    // audioItemClick.pause();
+    // audioItemClick.currentTime = 0;
   });
 
 });

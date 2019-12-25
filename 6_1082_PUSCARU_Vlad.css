@@ -5,6 +5,23 @@
     url('media/vonique.otf');
 }
 
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    right: -50%;
+  }
+  to {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+.fadeInFromLeft {
+  -webkit-animation-name: fadeInFromLeft;
+  animation-name: fadeInFromLeft;
+  position: relative;
+}
+
 @keyframes swipeLeft {
   from {
     width: 20%;
@@ -41,6 +58,16 @@
 .animated--fast {
   animation-duration: .1s;
   animation-fill-mode: both;;
+}
+
+.animated--chain--1 {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated--chain--2 {
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeOut {
