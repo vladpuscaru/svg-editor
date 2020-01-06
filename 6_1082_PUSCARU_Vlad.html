@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" type="text/css" href="6_1082_PUSCARU_Vlad.css">
+  <link rel="shortcut icon" type="image/png" href="./media/favicon.png">
   <script src="lib/jquery.js"></script>
   <script src="6_1082_PUSCARU_Vlad.js"></script>
   <title>SVG Editor</title>
@@ -48,32 +49,90 @@
         <div class="item item--text">
           T
         </div>
+
+        <input type="text" id="text-input" placeholder="Enter your text">
       </div>
 
       <div id="selected-properties" class="animated fadeIn active">
         <div class="row header">
           selected properties
         </div>
-        <div class="row">
-          <div class="prop">
-            <label for="width">w<span>:</span></label>
-            <input type="number" name="width" , id="width">
-          </div>
-          <div class="prop">
-            <label for="height">h<span>:</span></label>
-            <input type="number" name="height" , id="height">
-          </div>
+        <!-- Rect -->
+        <div id="prop--width" data-for="rect" class="row">
+          <label for="width">width: </label>
+          <input type="number" name="width" id="width">
         </div>
-        <div class="row">
-          <div class="prop">
-            <label for="x">x<span>:</span></label>
-            <input type="number" name="x" , id="x">
-          </div>
-          <div class="prop">
-            <label for="y">y<span>:</span></label>
-            <input type="number" name="y" , id="y">
-          </div>
+        <!-- Rect -->
+        <div id="prop--height" data-for="rect" class="row">
+          <label for="height">height: </label>
+          <input type="number" name="height" id="height">
         </div>
+        <!-- Rect, Text -->
+        <div id="prop--x" data-for="rect,text" class="row">
+          <label for="x">x: </label>
+          <input type="number" name="x" id="x">
+        </div>
+        <!-- Rect, Text -->
+        <div id="prop--y" data-for="rect,text" class="row">
+          <label for="y">y: </label>
+          <input type="number" name="y" id="y">
+        </div>
+        <!-- Text -->
+        <div id="prop--font-size" data-for="text" class="row">
+          <label for="font-size">font: </label>
+          <input type="number" min="8" max="200" name="font-size" id="font-size">
+        </div>
+        <!-- Line -->
+        <div id="prop--x1" data-for="line" class="row">
+          <label for="x1">x1: </label>
+          <input type="number" name="x1" id="x1">
+        </div>
+        <!-- Line -->
+        <div id="prop--x2" data-for="line" class="row">
+          <label for="x2">x2: </label>
+          <input type="number" name="x2" id="x2">
+        </div>
+        <!-- Line -->
+        <div id="prop--y1" data-for="line" class="row">
+          <label for="y1">y1: </label>
+          <input type="number" name="y1" id="y1">
+        </div>
+        <!-- Line -->
+        <div id="prop--y2" data-for="line" class="row">
+          <label for="y2">y2: </label>
+          <input type="number" name="y2" id="y2">
+        </div>
+        <!-- Line -->
+        <div id="prop--stroke-width" data-for="line" class="row">
+          <label for="stroke-width">stroke: </label>
+          <input type="number" min="1" max="10" name="stroke-width" id="stroke-width">
+        </div>
+        <!-- Ellipse -->
+        <div id="prop--cx" data-for="ellipse" class="row">
+          <label for="cx">cx: </label>
+          <input type="number" name="cx" id="cx">
+        </div>
+        <!-- Ellipse -->
+        <div id="prop--cy" data-for="ellipse" class="row">
+          <label for="cy">cy: </label>
+          <input type="number" name="cy" id="cy">
+        </div>
+        <!-- Ellipse -->
+        <div id="prop--rx" data-for="ellipse" class="row">
+          <label for="rx">rx: </label>
+          <input type="number" name="rx" id="rx">
+        </div>
+        <!-- Ellipse -->
+        <div id="prop--ry" data-for="ellipse" class="row">
+          <label for="ry">ry: </label>
+          <input type="number" name="ry" id="ry">
+        </div>
+        <!-- Rect, Ellipse, Text, Line, Path -->
+        <div id="prop--fill" data-for="rect,ellipse,text,line,path" class="row">
+          <label for="fill">fill: </label>
+          <input type="color" name="fill" id="fill">
+        </div>
+
       </div>
 
       <div id="copy" class="animated fadeIn active">
@@ -82,11 +141,20 @@
     </div>
 
     <div id="canvas">
+      <div id="info-keys">
+        <span class="big">SHIFT <span>(</span>HOLD<span>)</span></span> perfect squares/circles
+        <br />
+        <span class="big">DELETE <span>(</span>PRESS<span>)</span></span> erase selected item
+        <br />
+        <span class="big">ENTER <span>(</span>PRESS<span>)</span></span> end path
+      </div>
       <svg id="editor">
         <svg id="elements"></svg>
         <rect id="selection--rectangle" width="0" height="0"></rect>
         <ellipse id="selection--ellipse" width="0" height="0"></ellipse>
-        <line id="selection--line" width="0" height="0"></line>
+        <line id="selection--line"></line>
+        <text id="selection--text"></text>
+        <ellipse id="selection--path" rx="5px" ry="5px"></ellipse>
       </svg>
     </div>
 
@@ -99,6 +167,13 @@
   </div>
 
 
+  <div id="save-screen">
+    <h4>Thank you for using my app!</h4>
+    <textarea cols="150" rows="20"></textarea>
+    <div id="close">
+
+    </div>
+  </div>
 
 </body>
 

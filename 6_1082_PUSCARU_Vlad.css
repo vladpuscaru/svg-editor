@@ -50,6 +50,34 @@
   animation-name: swipeRight;
 }
 
+@keyframes swipeLeftLong {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.swipeLeftLong {
+  -webkit-animation-name: swipeLeftLong;
+  animation-name: swipeLeftLong;
+}
+
+@keyframes swipeRightLong {
+  from {
+    right: 0;
+  } to {
+    right: -100%;
+  }
+}
+
+.swipeRightLong {
+  -webkit-animation-name: swipeRightLong;
+  animation-name: swipeRightLong;
+}
+
+
 .animated {
   animation-duration: 1.5s;
   animation-fill-mode: both;
@@ -266,6 +294,20 @@ h1 {
   justify-content: space-between;
 }
 
+#text-input {
+  width: 100%;
+  background-color: rgb(90, 94, 76);
+  border: 1px solid #F7EDF0;
+  color: #F7EDF0;
+  padding: 10px 5px;
+  margin-top: 5px;
+  display: none;
+}
+
+#text-input.active {
+  display: block;
+}
+
 .item {
   width: 50px;
   height: 50px;
@@ -334,35 +376,45 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 2px 10px;
+}
+
+#selected-properties .row:not(.header) {
+  display: none;
+}
+
+#selected-properties .row.active {
+  display: flex;
 }
 
 #selected-properties .row.header {
   font-size: 12px;
+  margin-bottom: 10px;
 }
 
-.prop {
-  width: 50%;
-  overflow: hidden;
+#selected-properties .row label {
+  flex: 20%;
+  text-align: left;
 }
 
-.prop label {
-  width: 50%;
-}
-
-.prop input {
-  width: 50px;
-  margin-left: auto;
-  padding: 2px 5px;
+#selected-properties .row input {
+  width: 100px;
   background-color: rgb(90, 94, 76);
   border: 1px solid #F7EDF0;
   color: #F7EDF0;
+  padding-left: 5px;
 }
 
-.prop input:focus {
+#selected-properties .row input:focus {
   outline: none;
 }
 
 
+text {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
 
 
 
@@ -373,20 +425,127 @@ h1 {
 }
 
 #editor svg * {
-  fill: white;
-  fill-opacity: 0.2;
-  stroke: #37392E;
   stroke-opacity: 0.2;
 }
 
-#editor #selection--rectangle {
+#editor #selection--rectangle, #selection--ellipse {
   display: none;
   fill: transparent;
   stroke: #37392E;
   stroke-opacity: 0.8;
-  stroke-dasharray: 2,2;
+  stroke-dasharray: 2, 2;
+}
+
+#selection--path {
+  stroke: #37392E;
+  stroke-opacity: 0.5;
+  stroke-dasharray: 2, 2;
+  display: none
+}
+
+#selection--line {
+  display: none;
+  fill: transparent;
+  stroke: #37392E;
+  stroke-opacity: 0.8;
 }
 
 #editor .selected {
-  fill: #37392E;
+  stroke-opacity: 1;
+  fill-opacity: 0.5;
+}
+
+#editor .draggable {
+  cursor: move !important;
+}
+
+
+#elements .clickable:hover {
+  cursor: pointer;
+}
+
+
+
+
+#info-keys {
+  position: absolute;
+  bottom: 20px;
+  left: 220px;
+  opacity: 0.2;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+#info-keys span {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#info-keys span.big {
+  color: red;
+  font-size: 16px;
+}
+
+
+
+#save-screen {
+  position: fixed;
+  right: -100%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 80%;
+  max-width: 80%;
+  background-color: #37392E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+#save-screen textarea {
+  margin-top: 20px;
+  width: 80%;
+  height: 80%;
+  resize: none;
+  border: none;
+  background-color: #F7EDF0;
+}
+
+#save-screen textarea:focus {
+  outline: none;
+}
+
+#save-screen h4 {
+  font-family: V;
+  color: #F7EDF0;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+#save-screen #close {
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  left: -20px;
+  background-color: #37392E;
+  border-radius: 3px;
+  background-image: url(./media/double-arrow.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
+  display: none;
+}
+
+#save-screen #close.active {
+  display: block;
+}
+
+#save-screen #close:hover {
+  cursor: pointer;
 }
