@@ -6,11 +6,14 @@ $(document).ready(function () {
   let audioEraserClick = new Audio("./media/erase.mp3");
   let audioSlide = new Audio("./media/slide.mp3");
   let audioBeep = new Audio("./media/beep.mp3");
+  let audioAddItem = new Audio("./media/add.mp3");
+  let audioDeleteItem = new Audio("./media/delete.mp3");
 
   //#region UI events
   let activeItem = $(".item.active");
 
   $("#btn").click(function () {
+    audioSlide.currentTime = 0;
     audioSlide.play();
     if ($(this).hasClass('rotated')) {
       setTimeout(function () {
@@ -50,6 +53,7 @@ $(document).ready(function () {
 
   // Removes the elements created
   $("#clear").click(function () {
+    audioEraserClick.currentTime = 0;
     audioEraserClick.play();
     elements.empty();
     $("#selected-properties .row").removeClass("active");
@@ -57,6 +61,7 @@ $(document).ready(function () {
 
   // Generates the code for the SVG
   $("#save").click(function () {
+    audioBeep.currentTime = 0;
     audioBeep.play();
     $("#save-screen").removeClass("animated swipeRightLong");
     $("#save-screen").addClass("animated swipeLeftLong");
@@ -71,6 +76,7 @@ $(document).ready(function () {
   })
 
   $("#save-screen #close").click(function () {
+    audioSlide.currentTime = 0;
     audioSlide.play();
     $("#save-screen").removeClass("animated swipeLeftLong");
     $("#save-screen").addClass("animated swipeRightLong");
@@ -89,6 +95,8 @@ $(document).ready(function () {
         shiftPressed = true;
       } else if (e.which == KEY_DELETE) {
         $(".selected").remove();
+        audioDeleteItem.currentTime = 0;
+        audioDeleteItem.play();
       } else if (e.which == KEY_ENTER) {
         endPath(pathSVG);
       }
@@ -120,6 +128,7 @@ $(document).ready(function () {
   });
 
   $(".item").click(function () {
+    audioItemClick.currentTime = 0;
     audioItemClick.play();
     activeItem.removeClass("active");
     $(this).addClass("active");
@@ -496,6 +505,10 @@ $(document).ready(function () {
 
       let newElement = createSVGElement(mouseX1, mouseY1, mouseX2, mouseY2);
       $(newElement).appendTo(elements);
+
+      audioAddItem.currentTime = 0;
+      audioAddItem.play();
+
     } else if (pathSelected) {
       // Makes another point for the path
       makePathPoint(pathSVG, mouseX2, mouseY2, "L");
